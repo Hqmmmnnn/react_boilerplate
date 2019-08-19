@@ -15,8 +15,9 @@ module.exports = env => {
     output: getOutput(env),
     module: { rules: getRules(env) },
     plugins: getPlugins(env),
-    resolve: getResolve(),
-    optimization: getOptimization()
+    resolve: getResolve(env),
+    optimization: getOptimization(),
+    devtool: isDev(env) ? "cheap-module-eval-source-map" : "source-map"
   };
 
   if (isDev(env)) {

@@ -7,6 +7,11 @@ const getBabelLoader = () => ({
   use: ["cache-loader", "babel-loader?cacheDirectory", "thread-loader"]
 });
 
+const getTsLoader = () => ({
+  test: /\.tsx?$/,
+  loader: "ts-loader"
+});
+
 const getCssLoader = env => ({
   test: /\.css$/,
   use: [isDev(env) ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"]
@@ -18,7 +23,7 @@ const getImageLoader = () => ({
 });
 
 const getRules = env =>
-  [getBabelLoader(), getCssLoader(env), getImageLoader()].filter(
+  [getBabelLoader(), getTsLoader(), getCssLoader(env), getImageLoader()].filter(
     loader => loader
   );
 
