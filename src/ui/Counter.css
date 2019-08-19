@@ -1,0 +1,11 @@
+.counter-button {
+  cursor: pointer;
+  height: 40px;
+  width: 150px;
+  color: black;
+  background: #91d0ff;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  transition: background 0.2s ease-in-out;
+}
